@@ -9,7 +9,7 @@ const Productdisplay = (props) => {
             console.log(err)
         })
     }
-    return (<>
+    return (<div className='product'>
         <div className="conatiner">
             {
                 props.all.map((ele) => {
@@ -36,7 +36,13 @@ const Productdisplay = (props) => {
                 })
           }
         </div>
-    </>);
+        <button className='prev' onClick={() => {
+            props.setpage(-1)
+        }} disabled={props.page == 1}>preview</button>
+        <button className='nxt' onClick={() => {
+            props.setpage(1)
+        }} disabled={props.page == 2}>Next</button>
+    </div>);
 }
  
 export default Productdisplay;

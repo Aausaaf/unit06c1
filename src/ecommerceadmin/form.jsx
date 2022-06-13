@@ -7,6 +7,7 @@ import axios from 'axios';
 //import Employeedetails from './formdetails';
 const Form = () => {
     const [chage, setchange] = useState(0)
+    const [page,setpage] = useState(1)
     const [name, setname] = useState("")
     const [age, setage] = useState("")
     const [address,setaddress] = useState("")
@@ -15,15 +16,18 @@ const Form = () => {
     const [marital, setmarital] = useState("")
     const [all, setall] = useState([])
     console.log(all)
+    const changepage = (n) => {
+        setpage(page=>page+n)
+    }
     useEffect(() => {
-        axios.get(`http://localhost:3000/array`).then(res => {
+        axios.get(`http://localhost:3000/array?_page=${page}&_limit=8`).then(res => {
            
             console.log(res.data)
             setall(res.data)
         }).catch(err => {
             console.log(err)
         })
-    },[setall])
+    },[setall,changepage])
     const namechange = (t) => {
         setname(t)
     }
@@ -71,7 +75,7 @@ const Form = () => {
                 all={all}
                 setall={allchange}
 
-                ></Formpage> : <Productdisplay  setall={refresh} all={all}></Productdisplay>
+                ></Formpage> : <Productdisplay page={page} setpage={changepage} setall={refresh} all={all}></Productdisplay>
         }
         
     </div>);

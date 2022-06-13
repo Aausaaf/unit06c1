@@ -190,3 +190,34 @@ textarea {
     background-color: red;
     color: white;
 }
+.product
+{
+    background-color: #f3f4f6;
+    margin-top: 0 !important;
+    position: relative;
+    top: -3.5vh;
+}
+.prev ,.nxt
+{
+    width: 7vw;
+    height: 5vh;
+    background-color: transparent;
+    color: blueviolet;
+    font-size: 1.4vw;
+    font-weight: 550;
+    outline: none;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    margin-left: 5vw;
+
+
+}
+.nxt{
+    margin-left: 70vw;
+}
+.prev:hover,
+.nxt:hover
+{
+    background-color: blue;
+    color: white;
+}
